@@ -27,8 +27,8 @@ v25では2学習・合計**45,824試合**でPPOを実行しました。選択し
 Python 3.12を使用します。GPUやKaggleの認証は不要です。
 
 ```bash
-git clone https://github.com/HagiwaraShigechika/kaggriculture.git
-cd kaggriculture
+git clone https://github.com/HagiwaraShigechika/kaggriculture-portfolio.git
+cd kaggriculture-portfolio
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements-ppo.txt
 .venv/bin/python -m ppo.smoke
