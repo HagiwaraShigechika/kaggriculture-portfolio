@@ -1,0 +1,8 @@
+{
+  "version": "v33",
+  "kind": "rule-based competition agent; not PPO",
+  "source_sha256": "be5c4026098d24a961d36662b9a751976d8c04744e5ee11315a54562343d1680",
+  "source_bytes": 2296300,
+  "upstream_notice": "licenses/main.NOTICE.txt",
+  "note": "Preserved historical artifact; no claim of current leaderboard performance."
+}

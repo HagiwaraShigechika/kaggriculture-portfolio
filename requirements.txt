@@ -1,0 +1,2 @@
+# Optional official game runner; PPO core has its own requirements-ppo.txt.
+kaggle-environments==1.32.7

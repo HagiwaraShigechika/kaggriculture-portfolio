@@ -1,0 +1,359 @@
+Kaggriculture v31, modified September 28, 2026.
+HagiwaraShigechika project changes to local v30. All inherited source notices and Apache-2.0 license text are preserved.
+
+Reserve observed wheat and fertilizer for the next native pickups; bound supplemental wheat purchases by warehouse capacity and available cash.
+Reserve the next two native market turns before supplemental purchases, including daily hire-cost reset; future sale proceeds receive no credit.
+Replace unusable CARE on capped, unfed animals with HARVEST only when remaining native visits and warehouse capacity permit it.
+Evaluate the inherited carrot choice at margin -22 while retaining feed and physical-yield safeguards.
+Correct the inherited tomato calendar and consumption forecast using observed shops and explicit remaining collection times.
+
+Public research references for the carrot parameter experiment; their original source and notices are retained in strategy_v31/research/sources/:
+Aleksei Provorov (leoprovorov), public Pi carrot-margin experiment:
+https://www.kaggle.com/code/leoprovorov/31415926535897932384626433832795058202884197169399
+Raw SHA256: 836cbfb633583890728cfd3a67e22a53bee95616edb6363798e0d28c774dc527
+
+haodou092, Kaggriculture Harvest Ledger, PET_CAFE-conditioned carrot experiment:
+https://www.kaggle.com/code/haodou092/kaggriculture-harvest-ledger
+Raw SHA256: bdb821178ca73c0e8480f06c1887e20921caea0438398a5edb68bd9ad20b1de8
+
+The new local guards use observed state and native schedules. Public replay diagnostics do not provide a private opponent policy.
+
+Preserved v30 and earlier notices follow:
+
+Kaggriculture v30 candidate, modified 2026-09-27.
+Baseline: local v29, retaining all inherited Apache-2.0 source notices.
+Change: apply the existing Demand-derived fixed-sale order response after all final sale quantity changes, up to8passes, with no-change/cycle stops and synchronized own-order history.
+No new sale quantity, crop decision, opponent identity or seed branch.
+
+Kaggriculture v29, modified September 27, 2026.
+Base: local v28 (SHA256 52f411fc8d67f9a5dbe7132a7a0f86ae4200c47e56345fcb292fe20308043d64).
+All baseline source and inherited attribution are preserved below and in main.py.
+
+Additional public mechanism: tetsutani, Demand-Preserving Turn Sale Timing,
+https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing
+Apache-2.0. Public main.py SHA256:
+55be5d5f124c8daaaa63c1a29ba4aab096004909666f04748007603c67b7d2a8
+
+Local changes: rewrite public Steps928/948/950/951/952/953 as a bounded
+same-day record-high sale layer for non-consumable animal/crop products.
+Add current stock, purchase/pickup dependency and at-most-one-crop guards;
+retain v28's expected sale-value gate against the next native sale within
+48 turns; reconcile inherited own-sale and opponent-supply estimators.
+Remove the strawberry-loss exemption from the existing night capacity
+repair, retaining future input floors, arbitrage guard and strict reduction
+of projected overflow. This change was motivated by actual observed replay
+cargo loss and is not a claim to recover a private opponent policy.
+No repeated public fixed-order closure wrappers were added for v29.
+
+Preserved predecessor and public-source notices follow:
+
+Kaggriculture v22, modified September24,2026.
+
+This release restores the v20 production/crop/input/storage/labor stack rather
+than retaining all of the Cha22 chassis used in v21. The v20 source and its
+embedded upstream notices are preserved; the v21 source remains an archived
+baseline. Local tomato expected-revenue threshold remains7000.
+
+The bounded MPX sale mechanism is adapted from abhinav0370, cha22 agent:
+https://www.kaggle.com/code/abhinav0370/cha22-agent
+Original source SHA256127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652.
+Apache-2.0; inherited authorship includes Ahmed Berat Ozer, Yusuke Hayashi,
+prvsiyan, Dmitrii Gluzdov, Thomas Tschinkel, tetsutani, shiiin9 and contributors.
+
+Local repairs: town consumption reflects each observed shop instance and the
+previous turn's shop set; own sales are capped by projected stock and recorded
+after all market edits; additional sales obey v20's demand-value gate; the
+existing funding-safe order optimizer runs after the additional orders. The
+existing search budget is retained. No new participant/seed/exact-state gate.
+
+Preserved v20 notices follow:
+Kaggriculture v20, modified September 23, 2026.
+Local changes: value-gated eight-turn planned sale advance, using public market
+inventory, known town demand and uncertain rival supply estimates. Final own-sales
+accounting updates opponent estimators. Public Moon ADV mechanism by prvsiyan
+and inherited contributors (including sdy623/jaxa623) adapted from
+https://www.kaggle.com/code/prvsiyan/kaggriculture-frontier-the-moon-counts-melons
+Sato6.1 fixed option3 informed comparison; no opponent identifiers or hidden state.
+All predecessor authorship and licenses retained. See strategy_v20/REPORT.md.
+
+Preserved predecessor notices:
+Kaggriculture v19, modified September 23, 2026.
+Local changes: net-value terminal strawberry forecast with competing-sale opportunity
+cost; guarded daily watering route merge; projected night-storage overflow reduction
+with next-day input reservation and strawberry overflow guard; funding-safe input-buy
+priority and lower-risk opening wheat round trip (8 buy /3 sell, retaining5).
+Opening liquidity idea also present in Apache-2.0 public Herd Safe Sale Window.
+All predecessor authorship and licenses retained.
+Validation and limitations: strategy_v19/REPORT.md.
+
+Preserved predecessor notices:
+Kaggriculture v18, modified September 22, 2026.
+Local changes: terminal strawberry forecast timing tolerance; same-day weed
+recovery across guarded harvest/replant chains; shifted-plant atomic seed checks
+and next-turn seed reservation. All v17 upstream authorship and licenses remain.
+The experimental grain netting, broad courier and early sales of other products
+are excluded from this release. See strategy_v18/REPORT.md for validation.
+
+Preserved predecessor notices:
+Kaggriculture v17, modified September 22, 2026.
+Base: Nathan Jacob, Kaggriculture Pipe18 Six Layers (Apache-2.0), including
+Ahmed Berat Ozer's V56 seed budget and fertilizer guards and Dmitrii Gluzdov's
+One More Wheat productive opening. All embedded upstream notices preserved.
+https://www.kaggle.com/code/nathanjacob/kaggriculture-pipe18-six-layers
+https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v56-smarter-seeds-and-fertilizer
+
+Market investment/ordering: shiiin9, Your Market List Is an Order Book,
+Apache-2.0. Adapted fixed-price ordering guard prevents advancing purchases.
+https://www.kaggle.com/code/shiiin9/your-market-list-is-an-order-book
+
+Local changes: seed-checked same-day weed crop recovery, future recovery-seed
+reservation, fixed-price funding order guard, self-contained prediction data.
+Experimental pre-maturity feed cuts are excluded from this release.
+Source hashes, attribution, and validation: strategy_v17/REPORT.md and research/.
+
+Preserved predecessor notices:
+Kaggriculture v16, 2026-09-21.
+Derived from the frozen v15 incumbent. All embedded original notices remain.
+Selected changes and experiments: strategy_v16/DECISION.json and REPORT.md.
+The productive-wheat extension, if selected, is from Dmitrii Gluzdov,
+https://www.kaggle.com/code/dmitriigluzdov/kaggriculture-one-more-wheat
+(Apache-2.0), with original notice retained at its source location.
+
+Preserved v15 notice:
+Kaggriculture v15 (2026-09-21)
+Modified by this project: same-day weed-blocked PLANT/WATER recovery, atomic seed
+guards and observational diagnostics. Prediction data is bundled in main.py.
+
+Derived from Nathan Jacob: Kaggriculture Pipe16 Idle Workers (Apache-2.0),
+Thomas Tschinkel: The Metav4 Farm Submission v13 (Apache-2.0),
+Dmitrii Gluzdov: A Smaller Market Shock productive opening (Apache-2.0).
+Upstream authors include Ahmed Berat Ozer, yhay81, prvsiyan, aurax7, tetsutani,
+Rayk Kretzschmar, degnonguidi, leoprovorov, destbreso, lucifer19, salemali7,
+Seyit Kaan Gunes, the public V100.24 authors, and Kaggle contributors.
+All notices and license text embedded in the upstream main.py are retained.
+Source URLs, original hashes and extraction records: strategy_v15/research/.
+
+Preserved productive-opening notice:
+Kaggriculture: A Smaller Market Shock, September 19, 2026.
+Modification by Dmitrii Gluzdov: a temporary opening wheat crop on a future
+pasture, with harvest, delivery and pasture restoration before the cow arrives.
+Based on Thomas Tschinkel's The 2945 Farm:
+https://www.kaggle.com/code/thomastschinkel/the-2945-farm-96-vs-the-top-10-public-bots
+The complete upstream source and its Apache-2.0 license/notices are preserved
+verbatim at the beginning of main.py. Upstream credits include Thomas
+Tschinkel, yhay81, Ahmed Berat Ozer, prvsiyan, aurax7, tetsutani, destbreso
+and Dmitrii Gluzdov. See the source for the complete notices and lineage.
+The added opening layer is distributed under Apache-2.0.
+
+
+v23 (2026-09-25): HagiwaraShigechika project changes. Restores existing9000 tomato projected-revenue floor after exact v22 replay ledger audit; reapplies inherited SELL-block order optimizer after final market layers.
+Research reference: haodou092/kaggriculture-harvest-ledger, retrieved2026-09-25, raw SHA256 3b543611448947399c9902e6ca1e45b84e904031156ff012ea675947dc74197e; Apache-2.0 notices retained in original source. Final reorder uses inherited _v44y_reorder; rejected herd/queue candidates remain research artifacts. Public replays motivate diagnostics, not private-policy recovery.
+
+Equal-price advancement now breaks ties by product name, eliminating inherited hash-order dependence.
+
+
+V28 modifications, 2026-09-27. Base: local v23, all inherited notices preserved.
+Risk-aware feed pickup repair adapted from Aleksei Provorov, Four-Turn Forecast / Herd-Safe, Apache-2.0, based on Dmitrii Gluzdov.
+https://www.kaggle.com/code/leoprovorov/four-turn-forecast-notebook-version-2
+Inventory-safe SELL/fixed-cost order search adapted from Step793 in Tetsutani, Demand-Preserving Turn Sale Timing (Apache-2.0).
+https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing
+The source's Step794–1009 repeated wrappers are not included. Local wrappers expose diagnostics and preserve final race tracking.
+
+Additional upstream NOTICE:
+Rescue controller refresh, September 22, 2026. Apache-2.0.
+Direct base: shiiin9, https://www.kaggle.com/code/shiiin9/your-market-list-is-an-order-book
+V55 controller and V56 input budgeting: Ahmed Berat Ozer.
+https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v56-smarter-seeds-and-fertilizer
+Metav4: Thomas Tschinkel. Hayashi: original ShopRouter.
+Dmitrii Gluzdov: seven-turn rescue, adaptation, evaluation and integration.
+All upstream source notices remain in main.py.
+
+Historical Rescue attribution follows; file-layout statements describe the original package, not this single-file refresh.
+E182 Shop0909 + terminal physical closure (modified 2026-09-09)
+
+The active public parent is Yusuke Hayashi's yhay81/shop-router-0909 v3.
+router_parent.py and actions.json are exact original bytes, not newly authored
+routes. The parent credits aurax7's Reactive Router for sale timing and shed
+projection; that attribution remains in router_parent.py. Original payload
+LICENSE.txt is preserved unchanged (Apache License 2.0 text); it contains no
+named copyright grantor and no separate NOTICE was supplied. No additional
+ownership, endorsement, or upstream replay-data rights claim is made.
+
+Local changes: separate main.py/policy.py adapter; bounded start712 planner
+copied from frozen E180/S78 and modified for seven callbacks, exact Shop final
+liquidation, strict positive physical delivery/sale gain, and observation guards.
+unit_model.py is an unchanged frozen E180 copy of Kaggle's extracted semantics.
+The following original E180 notice is retained verbatim for attribution history.
+Its references to Thomas files describe E180, not files supplied in this Shop
+package: no Thomas tapes, trees or policy are included here.
+
+----- Original E180 notice -----
+Kaggriculture: Last-Mile Harvest Planner
+Attribution and change notice
+
+Thomas Tschinkel is the author of the parent public state-router policy and its
+published decision trees and action-route data. Source: Kaggriculture: 93.8% Win
+Rate Public State Router, notebook version 3, scriptVersionId 347936183:
+https://www.kaggle.com/code/thomastschinkel/kaggriculture-93-8-win-rate-public-state-router?scriptVersionId=347936183
+The public notebook identifies its license as Apache License, Version 2.0.
+Original published main.py SHA-256:
+b87a27ed614a33329be85f1b662e51cf4078a019fee937afcebbbbf2f51f8522
+
+Changes to that source for this distribution: compressed route/tree literals
+were decoded into readable tapes.json and trees.json; a read-only planned_action
+helper was added; descriptive headers and local data loading were adapted.
+The original parent feature extraction, tree traversal and agent behavior are
+retained. These public routes are not claimed as newly authored or trained by
+the notebook distributor.
+
+unit_model.py contains deterministic unit-action and crop-decay definitions
+extracted from Kaggle's kaggle-environments 1.32.7 Kaggriculture engine, licensed
+under Apache License, Version 2.0. Credit: Kaggle and the kaggle-environments
+contributors. Project: https://github.com/Kaggle/kaggle-environments
+Source file: kaggle_environments/envs/kaggriculture/kaggriculture.py
+Source SHA-256:
+bc8a54879ef02c7ea64b8b333d6a976f0ea65c4949149d01f463f23bccee653e
+The extracted unit/decay definitions are not a newly authored game engine;
+market price dynamics and the full interpreter are not part of this module.
+
+Additional work in this distribution: a bounded last-nine-action collection
+and delivery planner, observation guards and recovery, a settings-consuming
+factory and entry point, standalone examples, and deterministic packaging.
+The full Apache License, Version 2.0 is included as LICENSE.txt.
+No endorsement by Thomas Tschinkel or Kaggle is implied.
+
+Data provenance limitation: Thomas's source refers to public replay data and
+an upstream provenance.json. That original episode-level manifest, replay IDs
+and individual replay-author identities were not supplied with the public
+notebook/output used here. No names or episode lineage have been invented.
+Notebook-level licensing does not independently establish the missing underlying
+replay-data rights chain. The package supplies usable readable routes, not a
+reproducible reconstruction of their original collection or training process.
+
+Packaging note: source inputs described as byte-exact above are
+normalized to UTF-8/LF text with a final newline in this standalone
+notebook package. Route JSON values and parent policy behavior are unchanged.
+
+Rescue integration, September 22, 2026.
+Dmitrii Gluzdov: opening liquidity repair, complete reacting evaluation and notebook integration. The complete previous Rescue controller and all upstream notices are retained. Public Master Hybrid was evaluated as a competing base; its replacement was rejected and is not included in this archive.
+
+Herd-Safe controller refresh, September 22, 2026.
+Dmitrii Gluzdov: complete controller replacement and reacting evaluation for Herd-Safe. The unchanged Seven-Turn Rescue controller retains all inherited notices.
+
+
+V33 market response addition, 2026-09-28.
+Uses the complete public Idle seller only as an embedded shadow market-order model.
+Source: https://www.kaggle.com/code/lynnsakurai/farmer-john-and-the-idle-seller
+The live production controller is v31 from commit055d260e8a01f0e2f4f963fb98ef137ad3183bcf.
+
+Kaggriculture v22, modified September24,2026.
+
+This release restores the v20 production/crop/input/storage/labor stack rather
+than retaining all of the Cha22 chassis used in v21. The v20 source and its
+embedded upstream notices are preserved; the v21 source remains an archived
+baseline. Local tomato expected-revenue threshold remains7000.
+
+The bounded MPX sale mechanism is adapted from abhinav0370, cha22 agent:
+https://www.kaggle.com/code/abhinav0370/cha22-agent
+Original source SHA256127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652.
+Apache-2.0; inherited authorship includes Ahmed Berat Ozer, Yusuke Hayashi,
+prvsiyan, Dmitrii Gluzdov, Thomas Tschinkel, tetsutani, shiiin9 and contributors.
+
+Local repairs: town consumption reflects each observed shop instance and the
+previous turn's shop set; own sales are capped by projected stock and recorded
+after all market edits; additional sales obey v20's demand-value gate; the
+existing funding-safe order optimizer runs after the additional orders. The
+existing search budget is retained. No new participant/seed/exact-state gate.
+
+Preserved v20 notices follow:
+Kaggriculture v20, modified September 23, 2026.
+Local changes: value-gated eight-turn planned sale advance, using public market
+inventory, known town demand and uncertain rival supply estimates. Final own-sales
+accounting updates opponent estimators. Public Moon ADV mechanism by prvsiyan
+and inherited contributors (including sdy623/jaxa623) adapted from
+https://www.kaggle.com/code/prvsiyan/kaggriculture-frontier-the-moon-counts-melons
+Sato6.1 fixed option3 informed comparison; no opponent identifiers or hidden state.
+All predecessor authorship and licenses retained. See strategy_v20/REPORT.md.
+
+Preserved predecessor notices:
+Kaggriculture v19, modified September 23, 2026.
+Local changes: net-value terminal strawberry forecast with competing-sale opportunity
+cost; guarded daily watering route merge; projected night-storage overflow reduction
+with next-day input reservation and strawberry overflow guard; funding-safe input-buy
+priority and lower-risk opening wheat round trip (8 buy /3 sell, retaining5).
+Opening liquidity idea also present in Apache-2.0 public Herd Safe Sale Window.
+All predecessor authorship and licenses retained.
+Validation and limitations: strategy_v19/REPORT.md.
+
+Preserved predecessor notices:
+Kaggriculture v18, modified September 22, 2026.
+Local changes: terminal strawberry forecast timing tolerance; same-day weed
+recovery across guarded harvest/replant chains; shifted-plant atomic seed checks
+and next-turn seed reservation. All v17 upstream authorship and licenses remain.
+The experimental grain netting, broad courier and early sales of other products
+are excluded from this release. See strategy_v18/REPORT.md for validation.
+
+Preserved predecessor notices:
+Kaggriculture v17, modified September 22, 2026.
+Base: Nathan Jacob, Kaggriculture Pipe18 Six Layers (Apache-2.0), including
+Ahmed Berat Ozer's V56 seed budget and fertilizer guards and Dmitrii Gluzdov's
+One More Wheat productive opening. All embedded upstream notices preserved.
+https://www.kaggle.com/code/nathanjacob/kaggriculture-pipe18-six-layers
+https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v56-smarter-seeds-and-fertilizer
+
+Market investment/ordering: shiiin9, Your Market List Is an Order Book,
+Apache-2.0. Adapted fixed-price ordering guard prevents advancing purchases.
+https://www.kaggle.com/code/shiiin9/your-market-list-is-an-order-book
+
+Local changes: seed-checked same-day weed crop recovery, future recovery-seed
+reservation, fixed-price funding order guard, self-contained prediction data.
+Experimental pre-maturity feed cuts are excluded from this release.
+Source hashes, attribution, and validation: strategy_v17/REPORT.md and research/.
+
+Preserved predecessor notices:
+Kaggriculture v16, 2026-09-21.
+Derived from the frozen v15 incumbent. All embedded original notices remain.
+Selected changes and experiments: strategy_v16/DECISION.json and REPORT.md.
+The productive-wheat extension, if selected, is from Dmitrii Gluzdov,
+https://www.kaggle.com/code/dmitriigluzdov/kaggriculture-one-more-wheat
+(Apache-2.0), with original notice retained at its source location.
+
+Preserved v15 notice:
+Kaggriculture v15 (2026-09-21)
+Modified by this project: same-day weed-blocked PLANT/WATER recovery, atomic seed
+guards and observational diagnostics. Prediction data is bundled in main.py.
+
+Derived from Nathan Jacob: Kaggriculture Pipe16 Idle Workers (Apache-2.0),
+Thomas Tschinkel: The Metav4 Farm Submission v13 (Apache-2.0),
+Dmitrii Gluzdov: A Smaller Market Shock productive opening (Apache-2.0).
+Upstream authors include Ahmed Berat Ozer, yhay81, prvsiyan, aurax7, tetsutani,
+Rayk Kretzschmar, degnonguidi, leoprovorov, destbreso, lucifer19, salemali7,
+Seyit Kaan Gunes, the public V100.24 authors, and Kaggle contributors.
+All notices and license text embedded in the upstream main.py are retained.
+Source URLs, original hashes and extraction records: strategy_v15/research/.
+
+Preserved productive-opening notice:
+Kaggriculture: A Smaller Market Shock, September 19, 2026.
+Modification by Dmitrii Gluzdov: a temporary opening wheat crop on a future
+pasture, with harvest, delivery and pasture restoration before the cow arrives.
+Based on Thomas Tschinkel's The 2945 Farm:
+https://www.kaggle.com/code/thomastschinkel/the-2945-farm-96-vs-the-top-10-public-bots
+The complete upstream source and its Apache-2.0 license/notices are preserved
+verbatim at the beginning of main.py. Upstream credits include Thomas
+Tschinkel, yhay81, Ahmed Berat Ozer, prvsiyan, aurax7, tetsutani, destbreso
+and Dmitrii Gluzdov. See the source for the complete notices and lineage.
+The added opening layer is distributed under Apache-2.0.
+
+
+v23 (2026-09-25): HagiwaraShigechika project changes. Restores existing9000 tomato projected-revenue floor after exact v22 replay ledger audit; reapplies inherited SELL-block order optimizer after final market layers.
+Research reference: haodou092/kaggriculture-harvest-ledger, retrieved2026-09-25, raw SHA256 3b543611448947399c9902e6ca1e45b84e904031156ff012ea675947dc74197e; Apache-2.0 notices retained in original source. Final reorder uses inherited _v44y_reorder; rejected herd/queue candidates remain research artifacts. Public replays motivate diagnostics, not private-policy recovery.
+
+Equal-price advancement now breaks ties by product name, eliminating inherited hash-order dependence.
+
+V24 (2026-09-25): restores the v22 tomato investment threshold; retains V23 final SELL ordering and deterministic equal-price tie breaking. The new capacity and balanced-crew experiments were not adopted. All upstream notices retained.
+
+V25 modifications (2026-09-28): online two-expert market response and explicit marginal crop labor budget.
+Shadow model: lynnsakurai, Farmer John and the Idle Seller, Apache-2.0.
+https://www.kaggle.com/code/lynnsakurai/farmer-john-and-the-idle-seller
+Extracted source and its original NOTICE/LICENSE are in research_v32/research/farmer-john-and-the-idle-seller/.
+The learned animal-value model and rejected experiments are not part of the released agent.

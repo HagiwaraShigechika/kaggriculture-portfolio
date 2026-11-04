@@ -1,0 +1,52 @@
+{
+  "source_repository": "https://github.com/HagiwaraShigechika/kaggriculture",
+  "source_commit": "055d260e8a01f0e2f4f963fb98ef137ad3183bcf",
+  "source_branch": "codex/v25-ppo",
+  "files": {
+    "ppo/model.py": {
+      "source_path": "strategy_v25/model.py",
+      "source_sha256": "cb075fbb3edbed32a52d593ef9961ff4764ad1188f00419e5896e27a28393ec1",
+      "transformation": "Unmodified source."
+    },
+    "ppo/update.py": {
+      "source_path": "strategy_v25/train.py",
+      "source_sha256": "516f78b6b8918dbaed8b9cc7171b3934421cc0007fe24d5ac58e77ca7244089c",
+      "transformation": "Extracted stack_rollouts and update function bodies without modification; added standalone imports and explanatory module docstring."
+    },
+    "experiments/v25/train.py": {
+      "source_path": "strategy_v25/train.py",
+      "source_sha256": "516f78b6b8918dbaed8b9cc7171b3934421cc0007fe24d5ac58e77ca7244089c",
+      "transformation": "Unmodified historical source; reference only, original game-training dependencies are not bundled."
+    },
+    "experiments/v25/rollout.py": {
+      "source_path": "strategy_v25/rollout.py",
+      "source_sha256": "947a4495283e5240aa81b9c746b470316f073aa09212f82537e39f13f4b0828d",
+      "transformation": "Unmodified historical source; reference only, original game-training dependencies are not bundled."
+    },
+    "experiments/v25/controller.py": {
+      "source_path": "strategy_v25/controller.py",
+      "source_sha256": "e783a93821f33713af3821341e146adfacc709276812d43aa8f8f5057f7866bd",
+      "transformation": "Unmodified historical source; reference only, original game-training dependencies are not bundled."
+    },
+    "experiments/v25/farm_controls.py": {
+      "source_path": "strategy_v25/farm_controls.py",
+      "source_sha256": "a1f10de9430b9972781ce7e077ecae436009f8095ffd07d27682f88c9aab25b1",
+      "transformation": "Unmodified historical source; reference only, original game-training dependencies are not bundled."
+    },
+    "experiments/v25/farm_hooks.py": {
+      "source_path": "strategy_v25/farm_hooks.py",
+      "source_sha256": "b6715f59e911f380317e548064ad86c22dfeb65229f3ed6cd21aa18b88fa3211",
+      "transformation": "Unmodified historical source; reference only, original game-training dependencies are not bundled."
+    },
+    "experiments/v25/build_agent.py": {
+      "source_path": "strategy_v25/build_agent.py",
+      "source_sha256": "50bbc1fa8e95b8ca2d38a61ea06143c108ff74f39efe2fec9a4cc983549b7d8c",
+      "transformation": "Unmodified historical source; reference only, original game-training dependencies are not bundled."
+    }
+  },
+  "new_files": [
+    "ppo/smoke.py",
+    "tests/test_ppo.py"
+  ],
+  "scope": "Runnable PPO core and synthetic verification. No environment rollout, model checkpoints, or game-performance reproduction is included."
+}
